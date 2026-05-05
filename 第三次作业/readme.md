@@ -150,7 +150,7 @@ f ≈ 700
 生成点云：
 
 ```
-reconstructed_head.obj
+result.obj
 ```
 
 可用以下软件查看：
