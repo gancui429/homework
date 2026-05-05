@@ -131,11 +131,11 @@ colmap stereo_fusion ^
 
 稀疏点云：
 
-![稀疏]
+![稀疏](point3D.png)
 
 稠密点云：
 
-data/dense/fused.ply
+![稠密](fused.png)
 
 ---
 
