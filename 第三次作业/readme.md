@@ -109,7 +109,7 @@ python bundle.py
 输出文件：
 
 ```
-reconstructed_head.obj
+result.obj
 ```
 
 ---
@@ -172,7 +172,7 @@ python bundle.py
 将自动绘制优化过程：
 
 📉 Loss 持续下降，说明 BA 收敛良好
-
+!(loss_curve.png)
 ---
 
 # Key Features
