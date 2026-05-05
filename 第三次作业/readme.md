@@ -172,7 +172,9 @@ python bundle.py
 将自动绘制优化过程：
 
 📉 Loss 持续下降，说明 BA 收敛良好
-!(loss_curve.png)
+📈 Loss 持续下降，说明 BA 收敛良好
+
+![Loss 变化曲线](loss_curve.png)
 ---
 
 # Key Features
