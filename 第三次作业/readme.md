@@ -175,7 +175,7 @@ python bundle.py
 📈 Loss 持续下降，说明 BA 收敛良好
 
 ![Loss 变化曲线](loss_curve.png)
-<video src="bandicam%202026-05-06%2004-00-24-957.mp4" controls width="800" alt="视频演示"></video>
+<video src="3_1.mp4" controls width="800" alt="视频演示"></video>
 
 ---
 ---
