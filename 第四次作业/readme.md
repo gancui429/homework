@@ -78,11 +78,17 @@ python train.py --colmap_dir data/chair --checkpoint_dir data/chair/checkpoints
 
 ### 4.2 结果对比
 
-| 指标 | 本作业 (简化版 3DGS) | 官方 3DGS | 差异分析 |
+
+### 实验结果对比分析
+
+| 指标 | 本实验实现 | 官方 3DGS 实现 | 差异分析与原因 |
 | :--- | :--- | :--- | :--- |
-| **渲染质量 (PSNR)** | [填入您的 PSNR 数值] dB | [填入官方 PSNR 数值] dB | [分析差异原因，例如：由于缺乏 adaptive densification，细节恢复可能不足] |
-| **训练时间** | [填入训练总耗时，例如：2小时] | [填入官方耗时，例如：20分钟] | **差异显著**。官方实现使用了 CUDA 内核加速 (tile-based rasterizer)，而纯 PyTorch 实现在 Python 解释器和通用矩阵运算上开销较大。 |
-| **显存占用 (GPU Mem)** | [填入显存峰值，例如：18 GB] | [填入官方显存，例如：6 GB] | **差异显著**。简化版未进行显存优化（如半精度浮点数 fp16 优化、紧凑的张量存储等）。 |
+| **渲染质量 (PSNR)** | N/A | ~28 dB | **由于缺乏 Adaptive Densification（自适应密度控制）机制，高斯椭球无法根据梯度动态调整数量和分布，导致细节恢复能力不足。** |
+| **训练时间** | ~40 分钟 (仅 1 Epoch) | ~20 分钟 (完成全部训练) | **差异显著。官方实现基于 CUDA 编写了 Tile-based Rasterizer，最大化利用 GPU 并行计算能力；而本实验采用纯 PyTorch 实现，受限于 Python 循环和通用算子，计算效率较低。** |
+| **显存占用 (GPU Mem)** | 7.8 GB / 8 GB | ~6 GB | **差异显著。官方进行了显存优化（如半精度训练、稀疏存储）；本实验为简化代码逻辑，全程使用 FP32 且未针对大规模张量进行内存复用。** |
+
+---
+
 
 ### 4.3 差异来源讨论
 1.  **渲染效率 (Tile-based Rasterizer vs. Naive PyTorch)：**
