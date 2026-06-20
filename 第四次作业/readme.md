@@ -1,4 +1,3 @@
-这是一个为您准备的 Markdown 格式实验报告模板。我已将作业要求中的关键点转化为报告结构，并用特定的标记（如 `[]`）标出了需要您填入具体实验结果和数据的地方。
 
 ***
 
@@ -65,7 +64,7 @@ python train.py --colmap_dir data/chair --checkpoint_dir data/chair/checkpoints
 
 
 **分析：**
-经过 60,000 次迭代训练，模型成功生成了具有丰富细节的 3D 高斯集合。与初始的稀疏点云相比，模型不仅恢复了物体的宏观结构，还很好地还原了 [例如：椅子的纹理/乐高的边缘]。渲染出的新视角图像在视觉上具有高度的保真度。
+经过 60,000 次迭代训练，模型成功生成了具有丰富细节的 3D 高斯集合。与初始的稀疏点云相比，模型不仅恢复了物体的宏观结构,渲染出的新视角图像在视觉上具有高度的保真度。
 
 ---
 
@@ -102,21 +101,4 @@ python train.py --colmap_dir data/chair --checkpoint_dir data/chair/checkpoints
 
 ---
 
-## 附录：关键代码片段 (可选)
-*(如果您认为有必要，可以在此处粘贴您认为最重要的几个函数的代码，例如 `compute_covariance` 或 `render` 函数)*
 
-python
-# 示例：gaussian_renderer.py 中的渲染核心代码
-def render(gaussians, camera):
-    # 1. 投影
-    projected_gaussians = project_to_2d(gaussians, camera)
-    # 2. 计算高斯值
-    values = compute_gaussian_values(projected_gaussians, camera.pixels)
-    # 3. 排序与混合
-    sorted_indices = sort_by_depth(values)
-    colors = alpha_blending(values, sorted_indices)
-    return colors
-
-
-***
-*提示：请将所有 `[ ]` 中的占位符替换为您的实际实验数据和截图路径。*
