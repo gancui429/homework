@@ -86,9 +86,8 @@ python train.py --colmap_dir data/chair --checkpoint_dir data/chair/checkpoints
 | **渲染质量 (PSNR)** | N/A | ~28 dB | **由于缺乏 Adaptive Densification（自适应密度控制）机制，高斯椭球无法根据梯度动态调整数量和分布，导致细节恢复能力不足。** |
 | **训练时间** | ~53 分钟  | ~20 分钟  | **差异显著。官方实现基于 CUDA 编写了 Tile-based Rasterizer，最大化利用 GPU 并行计算能力；而本实验采用纯 PyTorch 实现，受限于 Python 循环和通用算子，计算效率较低。** |
 | **显存占用 (GPU Mem)** | 7.8 GB / 8 GB | ~6 GB | **差异显著。官方进行了显存优化（如半精度训练、稀疏存储）；本实验为简化代码逻辑，全程使用 FP32 且未针对大规模张量进行内存复用。** |
-![显存占用](pic/3.png)
 ---
-
+![显存占用](pic/3.png)
 
 ### 4.3 差异来源讨论
 1.  **渲染效率 (Tile-based Rasterizer vs. Naive PyTorch)：**
