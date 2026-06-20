@@ -38,7 +38,7 @@ python debug_mvs_by_projecting_pts.py --data_dir data/chair
 
 **结果展示：**
 *   **稀疏点云可视化：**
-  ![COLMAP稀疏点云](屏幕截图 2026-06-20 232224.png)
+  ![COLMAP稀疏点云](pic/1.png)
 *   **重投影验证：**
     *(此处请插入重投影验证的截图，展示 3D 点是否正确投影回图像对应位置)*
     ![填入图片路径]
